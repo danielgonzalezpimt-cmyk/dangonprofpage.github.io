@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentación profesional — Daniel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-head{ padding: 48px 0 8px; }
+  .page-head h1{
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 4.5vw, 36px);
+    font-weight: 600;
+  }
+
+  .doc-list{ margin-top: 40px; border-top: 1px solid var(--border); }
+
+  .doc-item{
+    display:flex; align-items:baseline; justify-content:space-between; gap:20px;
+    padding: 22px 0; border-bottom: 1px solid var(--border);
+  }
+  .doc-item .doc-main h3{
+    font-family: var(--font-serif); font-size:17px; font-weight:600; margin-bottom:4px;
+  }
+  .doc-item .doc-main p{ color:var(--text-muted); font-size:14px; }
+  .doc-item a.view{
+    font-size: 13.5px; color: var(--accent); white-space:nowrap;
+    border-bottom: 1px solid transparent;
+  }
+  .doc-item a.view:hover{ border-bottom-color: var(--accent); }
+
+  .back{
+    display:inline-block; margin-top:40px;
+    font-size:14px; color:var(--text-muted);
+  }
+  .back:hover{ color:var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><a href="index.html">Daniel</a></div>
+    <nav>
+      <a href="cv.html">Currículum</a>
+      <a href="certificados.html" class="active">Documentación profesional</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="page-head">
+    <p class="eyebrow">Documentación profesional</p>
+    <h1>Certificados y diplomas</h1>
+  </div>
+
+  <!-- Duplica .doc-item para cada certificado. El enlace "view" puede
+       apuntar a un PDF o imagen, por ejemplo: href="documentos/curso.pdf" -->
+  <div class="doc-list">
+
+    <article class="doc-item">
+      <div class="doc-main">
+        <h3>Nombre del curso o certificación</h3>
+        <p>Institución emisora — Año</p>
+      </div>
+      <a class="view" href="#">Ver documento →</a>
+    </article>
+
+    <article class="doc-item">
+      <div class="doc-main">
+        <h3>Nombre del curso o certificación</h3>
+        <p>Institución emisora — Año</p>
+      </div>
+      <a class="view" href="#">Ver documento →</a>
+    </article>
+
+    <article class="doc-item">
+      <div class="doc-main">
+        <h3>Nombre del curso o certificación</h3>
+        <p>Institución emisora — Año</p>
+      </div>
+      <a class="view" href="#">Ver documento →</a>
+    </article>
+
+  </div>
+
+  <a class="back" href="index.html">← Volver al inicio</a>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Daniel</p>
+    <p>contacto@tudominio.com</p>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
