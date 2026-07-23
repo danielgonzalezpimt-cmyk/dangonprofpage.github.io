@@ -1,0 +1,148 @@
+/* ============================================================
+   TOKENS
+   Paleta inspirada en instrumentación científica: monitor EEG /
+   osciloscopio en un laboratorio a oscuras.
+   ============================================================ */
+:root{
+  --bg:            #0A0E13;
+  --bg-panel:      #10161D;
+  --bg-panel-2:    #141B23;
+  --grid-line:     #1B242D;
+  --fg:            #E8EEF2;
+  --fg-muted:      #8695A3;
+  --fg-dim:        #4C5A67;
+
+  --ch1:           #F2A65A; /* canal CV — cálido, humano */
+  --ch1-dim:       #6B5333;
+  --ch2:           #4FE8B8; /* canal Certificados — verificado */
+  --ch2-dim:       #2C6156;
+
+  --line:          #23303B;
+  --radius:        3px;
+
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-sans: 'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-sans);
+  line-height:1.5;
+  min-height:100vh;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
+}
+
+a{ color:inherit; text-decoration:none; }
+
+::selection{ background:var(--ch2-dim); color:var(--fg); }
+
+:focus-visible{
+  outline: 2px solid var(--ch2);
+  outline-offset: 3px;
+}
+
+.wrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ============================================================
+   HEADER / TOPBAR
+   ============================================================ */
+.topbar{
+  border-bottom: 1px solid var(--line);
+  background: rgba(10,14,19,0.85);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.topbar .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height: 56px;
+}
+.topbar-id{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.status-dot{
+  width:7px; height:7px; border-radius:50%;
+  background: var(--ch2);
+  box-shadow: 0 0 8px var(--ch2);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce){
+  .status-dot{ animation:none; }
+}
+@keyframes blink{
+  0%,100%{ opacity:1; }
+  50%{ opacity:0.35; }
+}
+.topbar nav{
+  display:flex; gap:22px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--fg-muted);
+}
+.topbar nav a:hover{ color:var(--fg); }
+
+/* ============================================================
+   LABELS / EYEBROWS
+   ============================================================ */
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom: 14px;
+}
+.eyebrow::before{
+  content:"";
+  width: 22px; height: 1px;
+  background: var(--fg-dim);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{
+  border-top: 1px solid var(--line);
+  margin-top: 90px;
+}
+footer .wrap{
+  padding-top: 26px;
+  padding-bottom: 34px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+footer p{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-dim);
+  letter-spacing: 0.04em;
+}
